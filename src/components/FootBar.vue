@@ -16,7 +16,7 @@
             <li @click="goRouter('/user')">
                 <span class="iconfont icon-denglu"></span>
                 <p v-if="isLogin">已登录</p>
-                <p  v-else >未登录</p>
+                <p v-else>未登录</p>
             </li>
         </ul>
     </div>
@@ -27,19 +27,19 @@
     export default {
         name: 'FootBar',
         props: {},
-        data(){
-            return{
-                isLogin:false,
-            }  
-        },
-        methods: {
-            goRouter(path){        
-                this.$router.push({ path: path });
+        data() {
+            return {
+                isLogin: false,
             }
         },
-        mounted(){
-            if(localStorage.getItem('token')){
-                this.isLogin=true;
+        methods: {
+            goRouter(path) {
+                this.$router.push({ path: path })
+            }
+        },
+        mounted() {
+            if (localStorage.getItem('token')) {
+                this.isLogin = true
             }
         },
     }
@@ -78,5 +78,4 @@
         font-size: 10px;
         color: #505050;
     }
-
 </style>

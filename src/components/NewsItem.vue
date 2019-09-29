@@ -26,34 +26,37 @@
         props: {
             newsItem: {},
             commentsList: {},
-            newsId:{},
+            newsId: {},
         },
+
         data() {
             return {
-                CommentCount:0,
+                CommentCount: 0,
             }
         },
+
         watch: {
-            commentsList: function (n, o) {
-                this.commentsList = n
+            commentsList() {
                 this.getCommentCount()
             }
         },
+
         methods: {
             goDetail(newsId) {
                 this.newsId = newsId;
                 this.$emit('click', this.newsId)
             },
-            getCommentCount(){
-                console.log(123);
-                for( let i = 0; i < this.commentsList.length ;i++ ){
-                    if (this.commentsList[i].post== this.newsId){
+            
+            getCommentCount() {
+                for (let i = 0; i < this.commentsList.length; i++) {
+                    if (this.commentsList[i].post == this.newsId) {
                         this.CommentCount += 1;
                     }
                 }
             }
         },
-        mounted(){
+
+        mounted() {
             this.getCommentCount()
         },
     }
@@ -64,7 +67,6 @@
         margin: 0px 20px;
         border-bottom: 1px solid rgba(221, 221, 221, 0.6);
         display: block;
-        /* position: absolute; */
         padding: 16px 0px;
         min-height: 42px;
         font-size: 0px;

@@ -48,8 +48,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class='clear'></div>
 
         <!-- myRecord 我的收藏 评论点赞历史 -->
@@ -237,21 +235,23 @@
                 username: {},
             }
         },
+
         methods: {
             showForm() {
-                $('.login-form').css('height', '100%');
-                $('.register-form').css('height', '0%');
+                $('.login-form').css('height', '100%')
+                $('.register-form').css('height', '0%')
             },
+
             closeForm() {
-                $('.login-form').css('height', '0');
-                $('.register-form').css('height', '0');
+                $('.login-form').css('height', '0')
+                $('.register-form').css('height', '0')
             },
+
             login() {
                 var data = {
                     username: this.userinfo.username,
                     password: this.userinfo.password,
                 }
-                console.log(data);
 
                 if (!this.checkUsername(data.username)) {
                     alert('用户名不能为空')
@@ -284,8 +284,8 @@
             },
 
             showRegister() {
-                $('.register-form').css('height', '100%');
-                $('.login-form').css('height', '0');
+                $('.register-form').css('height', '100%')
+                $('.login-form').css('height', '0')
 
             },
 
@@ -336,6 +336,7 @@
             },
 
         },
+
         mounted() {
             if (localStorage.getItem('token')) {
                 if (localStorage.getItem('username')) {
@@ -395,7 +396,6 @@
         margin-left: 15px;
         margin-bottom: 10px;
     }
-
 
     .userInfo .info .renzhen {
         width: 60px;
@@ -567,7 +567,6 @@
 
     .login-form .title {
         width: 100%;
-        /* background: red; */
         font-size: 18px;
         text-align: center;
         margin-top: 70px;
@@ -581,7 +580,6 @@
     .login-form .show {
         width: 100%;
         height: 200px;
-        /* border: 1px solid #ccc; */
         margin: 0 auto;
         margin-top: 45px;
     }
@@ -595,7 +593,6 @@
         width: 100%;
         margin-bottom: 10px;
         margin-top: 20px;
-        /* background: red; */
         text-align: center;
     }
 
@@ -622,7 +619,6 @@
     .lg .option {
         width: 100%;
         height: 100px;
-        /* background:red; */
         margin-top: 200px;
     }
 
@@ -638,12 +634,10 @@
         font-size: 20px;
     }
 
-
     /* regiest-form框 */
     .register-form {
         height: 0%;
         width: 100%;
-        /* border-top: 0.8px solid rgb(221, 221, 221); */
         border-radius: 10px 10px 0 0;
         background: rgb(233, 232, 232);
         position: fixed;
@@ -655,7 +649,6 @@
 
     .register-form .title {
         width: 100%;
-        /* background: red; */
         font-size: 18px;
         text-align: center;
         margin-top: 70px;
@@ -669,7 +662,6 @@
     .register-form .show {
         width: 100%;
         height: 200px;
-        /* border: 1px solid #ccc; */
         margin: 0 auto;
         margin-top: 45px;
     }
@@ -683,7 +675,6 @@
         width: 100%;
         margin-bottom: 10px;
         margin-top: 20px;
-        /* background: red; */
         text-align: center;
     }
 
@@ -710,7 +701,6 @@
     .reg .option {
         width: 100%;
         height: 100px;
-        /* background:red; */
         margin-top: 200px;
     }
 

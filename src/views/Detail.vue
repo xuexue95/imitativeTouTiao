@@ -147,9 +147,9 @@
                 tags: [],
             }
         },
+
         watch: {
-            commentsList: function (n, o) {
-                this.commentsList = n
+            commentsList() {
                 this.getCommentCount()
             }
         },
@@ -162,7 +162,6 @@
             getNewsDetail() {
                 this.axios.get("http://115.29.42.191:8001/wp-json/wp/v2/posts/" + this.query.news_id).then((res) => {
                     this.detail = res.data
-                    // console.log(this.detail);
                     this.newTags = res.data.tags
                     this.getTags()
                 })
@@ -171,9 +170,6 @@
             getComments() {
                 this.axios.get('http://115.29.42.191:8001/wp-json/wp/v2/comments/?per_page=100').then((res) => {
                     this.commentsList = res.data
-                    // this.getCommentCount()
-                    // console.log(this.commentsList);
-
                 })
             },
 
@@ -184,9 +180,9 @@
                     }
                 }
             },
+
             getTags() {
                 this.axios.get('http://115.29.42.191:8001/wp-json/wp/v2/tags').then((res) => {
-                    // console.log(res.data);
                     let tags = res.data
                     for (let tag of tags) {
                         for (let tagid of this.newTags) {
@@ -195,7 +191,6 @@
                             }
                         }
                     }
-                    console.log(this.tags);
                 })
             },
 
@@ -206,8 +201,6 @@
                 } else if (this.createComment.content == '') {
                     alert('内容不能为空')
                 } else {
-                    console.log(this.createComment);
-                    console.log(token);
                     this.axios.post("http://115.29.42.191:8001/wp-json/wp/v2/comments", (this.createComment), {
                         headers: {
                             'content-type': 'application/json',
@@ -224,7 +217,7 @@
                         }
                     }).catch((error) => {
                         alert('评论失败!')
-                        console.log(error);
+                        console.log(error)
                     })
                 }
             },
@@ -241,8 +234,7 @@
         mounted() {
             this.getNewsDetail()
             this.getComments()
-
-        }
+        },
     }
 </script>}
 
@@ -361,7 +353,6 @@
 
     .option ul li .iconfont {
         font-size: 24px;
-
     }
 
     .commentCount {
@@ -384,7 +375,6 @@
         justify-content: left;
         flex-wrap: wrap;
         align-items: center;
-    
     }
 
     .tags ul li {
@@ -394,7 +384,8 @@
         display: inline-block;
         margin-bottom: 10px;
     }
-    .tags ul li .tag{
+
+    .tags ul li .tag {
         padding-left: 10px;
         padding-right: 10px;
         border-radius: 10px;
@@ -425,7 +416,6 @@
         line-height: 90px;
     }
 
-
     .createComment .writeComment textarea {
         width: 75%;
         height: 60px;
@@ -455,7 +445,6 @@
     .createComment .sendOption {
         width: 100%;
         height: 40px;
-        /* background: #ccc; */
         margin-left: 10px;
         line-height: 40px;
         color: rgb(133, 133, 133);
@@ -464,7 +453,6 @@
     .sendOption .choose {
         width: 55%;
         height: 40px;
-        /* background: red; */
         float: right;
     }
 

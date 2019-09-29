@@ -43,14 +43,16 @@
         props: {
             categoriesList: {},
         },
+
         data() {
             return {
                 currentIndex: 0,
             }
         },
+        
         methods: {
-            showOptions() {},
-            changeCategory(index,categoryId) {
+            showOptions() { },
+            changeCategory(index, categoryId) {
                 this.currentIndex = index
                 this.$emit('click', categoryId)
             },
@@ -140,7 +142,6 @@
         width: 140px;
         height: 300px;
         background-color: rgba(0, 0, 0, 0.8);
-        /* z-index: 200; */
         top: 85px;
         right: 10px;
         border-radius: 5px;

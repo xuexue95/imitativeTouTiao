@@ -1,4 +1,4 @@
-# toutiao-2
+# toutiao
 
 ## Project setup
 ```
